@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Spinner from '../layout/Spinner';
 import User from './User';
-import PropTypes from 'prop-types';
+import gitHubContext from '../../context/github/gitHubContext';
 
 const userStyle = {
   display: 'grid',
@@ -9,7 +9,9 @@ const userStyle = {
   gap: '1rem',
 };
 
-const Users = ({ users, loading }) => {
+const Users = () => {
+  const { users, loading } = useContext(gitHubContext);
+
   return loading ? (
     <Spinner />
   ) : (
@@ -19,11 +21,6 @@ const Users = ({ users, loading }) => {
       ))}
     </div>
   );
-};
-
-Users.propTypes = {
-  users: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired,
 };
 
 export default Users;

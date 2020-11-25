@@ -1,14 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ icon, children }) => {
   return (
-    <div style={{ padding: '15px' }} className="bg-primary">
-      <h1 style={{ letterSpacing: '3px' }}>
-        <i className={icon} style={{ margin: '0 20px' }}></i>
+    <nav
+      style={{
+        padding: '10px',
+        background: 'linear-gradient(90deg, rgb(0, 77, 192), black 60%)',
+        opacity: '1',
+      }}
+      className="navbar"
+    >
+      <h1 style={{ letterSpacing: '3px', color: 'white', width: '100%' }}>
+        <i className={icon} style={{ margin: '0 2%' }}></i>
         {children}
       </h1>
-    </div>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
